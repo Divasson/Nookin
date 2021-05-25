@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-NookingMicroserviceApplication<nooking-microservice>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "nookin.v1.nookingmicroservice.NookingMicroserviceApplication",
+            "projectName": "nooking-microservice",
+            "args": ""
+        }
+    ]
+}

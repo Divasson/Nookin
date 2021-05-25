@@ -2,7 +2,6 @@ package nookin.v1.nookingmicroservice.model;
 
 import java.util.List;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
@@ -11,11 +10,10 @@ import org.springframework.data.annotation.Id;
 import lombok.Data;
 
 @Data
-public class Usuario {
-    //Atributos
+public class Propietarios {
+    
     @Id
     private Long id;
-
     @NotNull
     private String nombre;
 
@@ -24,14 +22,8 @@ public class Usuario {
     private String telefono;
 
     @NotNull
-    @Min((long) 0.0)
-    private Long saldo;
-    private List<Local> localesPreferidos;
-
-    @NotNull
     @Pattern(regexp ="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g") //email validation
     private String email;
 
-    @NotNull
-    private EstadoReserva estadoReserva;
+    private List<Local> locales;
 }
