@@ -7,10 +7,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import lombok.Data;
 
 @Data
+@Table("PROPIETARIOS")
 public class Propietarios {
     @Id
     private Long id;

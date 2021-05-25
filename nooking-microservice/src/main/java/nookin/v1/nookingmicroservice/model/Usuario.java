@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
 
 import lombok.Data;
@@ -37,8 +38,11 @@ public class Usuario{
     @NotNull
     @Min((long) 0.0)
     private Float saldo;
+    
+    @MappedCollection(keyColumn = "CLIENTES",idColumn = "CLIENTES")
     private List<Local> localesPreferidos;
 
+    @MappedCollection(keyColumn = "CLIENTES",idColumn = "CLIENTES")
     private List<Reserva> reservas;
 
     

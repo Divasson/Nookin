@@ -6,10 +6,12 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import lombok.Data;
 
 @Data
+@Table("RESERVAS")
 public class Reserva {
     //Atributos
     @Id
