@@ -1,27 +1,16 @@
 package nookin.v1.nookingmicroservice.model;
 
-import java.util.List;
-
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
-import lombok.Data;
-
-@Data
-@Table("CLIENTES")
-public class Usuario{
-    
+public class UsuarioBase {
     @Id
     private Long id;
     @NotNull
     private String nombre;
-
-    @NotNull
-    private String contrasena;
 
     @NotNull
     @Pattern(regexp ="[\\d]{9}") //9 dígitos solo
@@ -33,13 +22,4 @@ public class Usuario{
 
     @Min(0)
     private Integer edad;
-
-    @NotNull
-    @Min((long) 0.0)
-    private Float saldo;
-    private List<Local> localesPreferidos;
-
-    private List<Reserva> reservas;
-
-    
 }

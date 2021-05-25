@@ -2,6 +2,7 @@ package nookin.v1.nookingmicroservice.model;
 
 import java.util.List;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
@@ -11,7 +12,6 @@ import lombok.Data;
 
 @Data
 public class Propietarios {
-    
     @Id
     private Long id;
     @NotNull
@@ -24,6 +24,10 @@ public class Propietarios {
     @NotNull
     @Pattern(regexp ="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g") //email validation
     private String email;
+
+    @Min(0)
+    private Integer edad;
+
 
     private List<Local> locales;
 }

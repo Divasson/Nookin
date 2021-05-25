@@ -27,5 +27,8 @@ public class Reserva {
 
     @NotNull
     private Integer numPersonasReserva;
+
+    @NotNull
+    private EstadoReserva estadoReserva;
     
 }
