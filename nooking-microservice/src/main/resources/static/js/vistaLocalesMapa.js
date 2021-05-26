@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         title: "Hola",
         icon: myIcon
     }).addTo(mymap);
-    marker.bindPopup('<h1><b>Bar Marcial</b></h1><img src="Images/BarCualquiera.jpg" width="200px" height="150px"><p><a href="vistaLocalConcreto.html">Buscar Reserva</a></p>', { keepInView: true });
+    marker.bindPopup('<h2><b>Bar Marcial</b></h2><img src="Images/BarCualquiera.jpg" width="200px" height="150px"><p><a href="vistaLocalConcreto.html">Buscar Reserva</a></p>', { keepInView: true });
 
     // var popup = L.popup()
     // .setLatLng([40.4530, -3.6883])
@@ -86,6 +86,11 @@ function ponerChinchetas(){
             title: ListaLocales[i].nombre,
             icon: myIcon
         }).addTo(mymap);
-        Chinchetas[i].bindPopup('<h1><b>'+ListaLocales[i].nombre+'</b></h1><img src="'+ListaLocales[i].imagen+'" width="200px" height="150px"><p><a href="vistaLocalConcreto.html/'+ListaLocales[i].id+'">Buscar Reserva</a></p>', { keepInView: true });
+        if(ListaLocales[i].imagen = ""){
+            Chinchetas[i].bindPopup('<h2><b>'+ListaLocales[i].nombre+'</b></h2><img src="'+ListaLocales[i].imagen+'" width="200px" height="150px"><p><a href="vistaLocalConcreto.html/'+ListaLocales[i].id+'">Buscar Reserva</a></p>', { keepInView: true });
+        }else{
+            Chinchetas[i].bindPopup('<h2><b>'+ListaLocales[i].nombre+'</b></h2><img src="Images/BarCualquiera.jpg" width="200px" height="150px"><p><a href="vistaLocalConcreto.html/'+ListaLocales[i].id+'">Buscar Reserva</a></p>', { keepInView: true });
+        }
+        
     }
 }
