@@ -1,5 +1,7 @@
 package nookin.v1.nookingmicroservice.service;
 
+
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -14,5 +16,5 @@ public interface LocalesService {
 
     public List<Local> getTodosLocales();
 
-    public List<Local> getTodosLocalesConSitio();
+    public List<Local> getTodosLocalesConSitio(Integer horaInicio,Integer horaFin,Date dia);
 }

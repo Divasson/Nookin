@@ -1,5 +1,6 @@
 package nookin.v1.nookingmicroservice.service.Impl;
 
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -29,12 +30,12 @@ public class LocalesServiceImpl implements LocalesService{
     }
 
     @Override
-    public List<Local> getTodosLocalesConSitio() {
+    public List<Local> getTodosLocalesConSitio(Integer horaInicio, Integer horaFin,Date dia) {
         Iterator it =  localesRepository.findAll().iterator();
         List<Local> listaDevolver = null;
         while(it.hasNext()){
             Local l = (Local) it.next();
-            if(l.isFull()){
+            if(l.isFull(horaInicio,horaFin,dia)){
                 listaDevolver.add(l);
             }
         }

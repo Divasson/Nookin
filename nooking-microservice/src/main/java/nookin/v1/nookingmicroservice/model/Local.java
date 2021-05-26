@@ -1,5 +1,6 @@
 package nookin.v1.nookingmicroservice.model;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -36,8 +37,8 @@ public class Local {
     private List<Categoria> categorias;
     private List<Reserva> reservas;
 
-    public boolean isFull(){
-        Integer suma = reservas.stream().filter(o -> o.getEstadoReserva().equals(EstadoReserva.ACTIVA)).mapToInt(o -> o.getNumPersonasReserva()).sum();
+    public boolean isFull(Integer horaInicio, Integer horaFin,Date diaDate){
+        Integer suma = reservas.stream().filter(o -> o.getFechaReserva().compareTo(diaDate)==0).filter(o -> o.getEstadoReserva().equals(EstadoReserva.ACTIVA)).mapToInt(o -> o.getNumPersonasReserva()).sum();
         if(suma<aforo){
             return false;
         }
