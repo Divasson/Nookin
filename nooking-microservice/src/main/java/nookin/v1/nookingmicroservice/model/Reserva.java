@@ -33,4 +33,6 @@ public class Reserva {
     @NotNull
     private EstadoReserva estadoReserva;
     
+    @NotNull
+    private String urlImagenLocal;
 }

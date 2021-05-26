@@ -3,6 +3,9 @@ package nookin.v1.nookingmicroservice.model;
 import java.time.Period;
 import java.util.List;
 
+import lombok.Data;
+
+@Data
 public class Categoria {
     private String tipo;
     private Integer edadRecomendada;
