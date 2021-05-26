@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         iconUrl: 'Images/cocktail2.png',
         iconSize: [30, 40],
         iconAnchor: [30, 40],
-        popupAnchor: [-3.5, -90],
+        popupAnchor: [-10, -35],
         //shadowUrl: 'my-icon-shadow.png',
         shadowSize: [68, 95],
         shadowAnchor: [22, 94]
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         title: "Hola",
         icon : myIcon
     }).addTo(mymap);
-    marker.bindPopup("<b>Hello world!</b><br>I am a popup.");
+    marker.bindPopup('<h1><b>Bar Marcial</b></h1><img src="Images/BarCualquiera.jpg" width="200px" height="150px">',{keepInView:true});
 
     // var popup = L.popup()
     // .setLatLng([40.4530, -3.6883])
