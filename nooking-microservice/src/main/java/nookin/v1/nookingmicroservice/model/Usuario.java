@@ -35,7 +35,6 @@ public class Usuario{
     @Min(0)
     private Integer edad;
 
-    @NotNull
     @Min((long) 0.0)
     private Float saldo;
     

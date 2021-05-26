@@ -23,6 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 import nookin.v1.nookingmicroservice.model.Local;
 import nookin.v1.nookingmicroservice.model.Reserva;
 import nookin.v1.nookingmicroservice.model.Usuario;
+import nookin.v1.nookingmicroservice.service.UsuariosService;
 
 import org.springframework.http.MediaType;
 
@@ -33,10 +34,16 @@ import org.springframework.http.MediaType;
         produces = MediaType.APPLICATION_JSON_VALUE )
 public class UsuariosController {
 
+    @Autowired
+    private UsuariosService usuariosService;
+
 
     @GetMapping("usuarios/verUsuarioNombre")
     public ResponseEntity<Usuario> getUsuarioNombre(@RequestParam String nombre){
-        return null;
+        if(usuariosService.isUsuarioNombre(nombre)){
+            return ResponseEntity.badRequest().body(null);
+        }
+        return ResponseEntity.ok().body(usuariosService.getUsuarioNombre(nombre));
     }
 
     
@@ -53,7 +60,6 @@ public class UsuariosController {
         if(bindingResult.hasErrors()){
             return ResponseEntity.badRequest().body(null);
         }
-
-        return ResponseEntity.ok().body(null);
+        return usuariosService.anadirUsuario(user);
     }
 }
