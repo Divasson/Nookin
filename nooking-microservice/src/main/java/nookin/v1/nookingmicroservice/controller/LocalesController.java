@@ -38,6 +38,11 @@ public class LocalesController {
         return ResponseEntity.ok().body(null);
     }
 
+    @GetMapping("/locales/verTodosConSitio")
+    public ResponseEntity<List<Local>> getTodosLocalesConSitio(){
+        return ResponseEntity.ok().body(null);
+    }
+
     @GetMapping("/locales/verLocal")
     public ResponseEntity<Local> getLocal(@RequestParam Long id){
         return ResponseEntity.ok().body(null);

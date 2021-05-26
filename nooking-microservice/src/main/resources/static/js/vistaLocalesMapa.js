@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 
 function loadLocales() {
-    const address = '/api/locales/verTodos';
+    const address = '/api/locales/verTodosConSitio';
 
 
     var headers = {

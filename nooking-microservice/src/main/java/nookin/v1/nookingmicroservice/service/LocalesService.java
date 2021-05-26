@@ -13,4 +13,6 @@ public interface LocalesService {
     public ResponseEntity<Local> getLocalId(Long id);
 
     public List<Local> getTodosLocales();
+
+    public List<Local> getTodosLocalesConSitio();
 }
