@@ -41,6 +41,17 @@ public class LocalesServiceImpl implements LocalesService{
             .collect(Collectors.toList());
     }
 
+    @Override
+    public List<Local> get3Primeros() {
+        List<Local> l= localesRepository.findAll();
+        if(l.size()>2){
+            List<Local> l2 = List.of(l.get(0),l.get(1),l.get(2));
+            return l2;
+        }else{
+            return l;
+        }
+    }
+
     /* @Override
     public List<Local> getTodosLocalesConSitio(Integer horaInicio, Integer horaFin,Date dia) {
         Iterator it =  localesRepository.findAll().iterator();

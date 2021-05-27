@@ -19,5 +19,7 @@ public interface LocalesService {
 
     public List<Categoria> getCategorias();
 
+    public List<Local> get3Primeros();
+
     //public List<Local> getTodosLocalesConSitio(Integer horaInicio,Integer horaFin,Date dia);
 }
