@@ -35,7 +35,7 @@ public class JwtSignupRequest {
 
 	@NotNull
 	@NotEmpty
-	private int age;
+	private Integer age;
 
 	@NotNull
 	@NotEmpty

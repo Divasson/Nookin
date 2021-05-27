@@ -13,6 +13,7 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,8 @@ import javax.validation.Valid;
 @RestController
 public class JwtAuthenticationController {
 
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
@@ -48,12 +51,13 @@ public class JwtAuthenticationController {
 	}
 
 	@PostMapping(value = "/signup")
-	public ResponseEntity<?> signup(@Valid @RequestBody JwtSignupRequest authenticationRequest) throws Exception {
+	public ResponseEntity<?> signup(@Valid @RequestBody JwtSignupRequest authenticationRequest2) throws Exception {
 
-		usuariosService.anadirUsuario(authenticationRequest);
+		authenticationRequest2.setPassword(passwordEncoder.encode(authenticationRequest2.getPassword()));
+		usuariosService.anadirUsuario(authenticationRequest2);
 
 		final UserDetails userDetails = jwtInMemoryUserDetailsService
-				.loadUserByUsername(authenticationRequest.getEmail());
+				.loadUserByUsername(authenticationRequest2.getEmail());
 
 		final String token = jwtTokenUtil.generateToken(userDetails);
 

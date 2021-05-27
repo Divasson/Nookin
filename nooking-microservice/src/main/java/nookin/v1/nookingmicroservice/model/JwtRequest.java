@@ -16,7 +16,6 @@ public class JwtRequest {
 
 	@NonNull
 	@NotEmpty
-	@Pattern(message="max 10 words please" , regexp="^[a-zA-Z-.0-9]{1,15}$")
 	private String username;
 
 	@NotNull

@@ -60,7 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						"/index.html", "/home.html", "/out.html",
 						"/images/**",
 						"/js/**").permitAll()
-				.antMatchers("/api/login").permitAll()
+				.antMatchers("/login", "/api/signup", "/**").permitAll()
 				.antMatchers("/h2/**").permitAll() //CAMBIADO
 				.antMatchers("/change-password.html").permitAll() //CAMBIADO
 				.anyRequest()
@@ -76,7 +76,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin()
 				.loginPage("/login.html")
 				.loginProcessingUrl("/perform_login")
-				.defaultSuccessUrl("/homepage.html", true)
+				.defaultSuccessUrl("/index.html", true)
 				.failureUrl("/login.html?error=true")
 				.and()
 				.logout()
