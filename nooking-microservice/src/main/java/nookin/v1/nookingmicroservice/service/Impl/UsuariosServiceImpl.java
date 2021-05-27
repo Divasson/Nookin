@@ -24,7 +24,7 @@ public class UsuariosServiceImpl implements UsuariosService{
 
     @Override
     public Usuario getUsuarioNombre(String nombre) {
-        return usuarioRepository.getUsuarioByNombre(nombre);
+        return usuarioRepository.getUsuarioByEmail(nombre);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class UsuariosServiceImpl implements UsuariosService{
     @Override
     public ResponseEntity<Usuario> anadirUsuario(Usuario user) {
         // TODO Auto-generated method stub
-        if(Objects.nonNull(usuarioRepository.getUsuarioByNombre(user.getNombre()))){
+        if(Objects.nonNull(usuarioRepository.getUsuarioByEmail(user.getNombre()))){
             return ResponseEntity.badRequest().body(null);
         }
         user.setContrasena(passwordEncoder.encode(user.getContrasena()));
