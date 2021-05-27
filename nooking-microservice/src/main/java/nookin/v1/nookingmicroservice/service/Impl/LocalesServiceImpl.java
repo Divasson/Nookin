@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import nookin.v1.nookingmicroservice.service.LocalesService;
 @Service
 public class LocalesServiceImpl implements LocalesService{
 
-
+    @Autowired
     private LocalesRepository localesRepository;
 
     @Override
@@ -25,8 +26,7 @@ public class LocalesServiceImpl implements LocalesService{
 
     @Override
     public List<Local> getTodosLocales() {
-        // TODO Auto-generated method stub
-        return null;
+        return localesRepository.findAll();
     }
 
     /* @Override

@@ -40,7 +40,7 @@ public class LocalesController {
 
     @GetMapping("/locales/verTodos")
     public ResponseEntity<List<Local>> getTodosLocales(){
-        return ResponseEntity.ok().body(null);
+        return ResponseEntity.ok().body(localesService.getTodosLocales());
     }
 
     /* @GetMapping("/locales/verTodosConSitio")

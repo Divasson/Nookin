@@ -10,8 +10,15 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon/favicon.svg">
-  <link rel="icon" type="image/png" href="/assets/img/favicon/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="assets/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="assets/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#35dba0">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -48,14 +55,14 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="about.html">Dame un plan</a></li>
-          <li><a href="vistaLocales.html">Cerca de mí</a></li>
-          <li class="dropdown"><a href="#"><span>Mejores planes</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a href="local-details.html">Dame un plan</a></li>
+          <li><a href="map.html">Cerca de mí</a></li>
+          <li class="dropdown"><a href="categories.html"><span>Mejores planes</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
+              <li><a href="cat.html">Template de categoría</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="cat.html">Template de subcategoría</a></li>
                   <li><a href="#">Deep Drop Down 2</a></li>
                   <li><a href="#">Deep Drop Down 3</a></li>
                   <li><a href="#">Deep Drop Down 4</a></li>
@@ -67,7 +74,7 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a href="events.html">Conócenos</a></li>
+          <li><a href="info.html">Conócenos</a></li>
 
           <li><a href="contact.html">Hagamos negocios</a></li>
         </ul>
@@ -84,7 +91,7 @@
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
       <h1>Reserva Hoy,<br>Disfruta Cuando Quieras</h1>
       <h2>Te ofrecemos los mejores planes de todo Madrid a un solo click</h2>
-      <a href="courses.html" class="btn-get-started">Get Started</a>
+      <a href="map.html" class="btn-get-started">Empecemos</a>
     </div>
   </section><!-- End Hero -->
 
@@ -97,7 +104,7 @@
         <div class="row counters">
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="6023" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="6025" data-purecounter-duration="1" class="purecounter"></span>
             <p>Promociones</p>
           </div>
 
@@ -107,7 +114,7 @@
           </div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="354" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="486" data-purecounter-duration="1" class="purecounter"></span>
             <p>Locales</p>
           </div>
 
@@ -127,31 +134,29 @@
 
         <div class="section-title">
           <h2>Eventos</h2>
-          <p>Los planes más populares</p>
+          <p>Las reservas más populares</p>
         </div>
 
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="course-item">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+            <div class="course-item ">
               <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Web Development</h4>
-                  <p class="price">$169</p>
                 </div>
 
-                <h3><a href="course-details.html">Website Design</a></h3>
+                <h3><a href="local-details.html">Website Design</a></h3>
                 <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                 <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-                    <span>Antonio</span>
-                  </div>
                   <div class="trainer-rank d-flex align-items-center">
                     <i class="bx bx-user"></i>&nbsp;50
                     &nbsp;&nbsp;
                     <i class="bx bx-heart"></i>&nbsp;65
+                  </div>
+                  <div class="mt-2 d-flex align-items-center">
+                    <a class="tag">-20% en carta</a>
                   </div>
                 </div>
               </div>
@@ -164,17 +169,13 @@
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Marketing</h4>
-                  <p class="price">$250</p>
+                  <p class="price">23€</p>
                 </div>
 
-                <h3><a href="course-details.html">Search Engine Optimization</a></h3>
+                <h3><a href="local-details.html">Search Engine Optimization</a></h3>
                 <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                 <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
-                    <span>Lana</span>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
+                  <div class="mt-2 trainer-rank d-flex align-items-center">
                     <i class="bx bx-user"></i>&nbsp;35
                     &nbsp;&nbsp;
                     <i class="bx bx-heart"></i>&nbsp;42
@@ -190,15 +191,13 @@
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <h4>Content</h4>
-                  <p class="price">$180</p>
                 </div>
 
-                <h3><a href="course-details.html">Copywriting</a></h3>
+                <h3><a href="local-details.html">Copywriting</a></h3>
                 <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
                 <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
-                    <span>Brandon</span>
+                  <div class="mt-2 d-flex align-items-center">
+                    <a class="tag">5€ de descuento</a>
                   </div>
                   <div class="trainer-rank d-flex align-items-center">
                     <i class="bx bx-user"></i>&nbsp;20
@@ -315,7 +314,7 @@
                 <div class="testimonial-item">
                   <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                   <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
+                  <h4>Festival El Jardín de las Delicias</h4>
                   <p>
                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                     Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
@@ -330,7 +329,7 @@
                 <div class="testimonial-item">
                   <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                   <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
+                  <h4>Copas en El Chapandaz</h4>
                   <p>
                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                     Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
@@ -345,7 +344,7 @@
                 <div class="testimonial-item">
                   <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                   <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
+                  <h4>Comida en La Lorena</h4>
                   <p>
                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                     Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
@@ -360,7 +359,7 @@
                 <div class="testimonial-item">
                   <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
                   <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
+                  <h4>Cerveceo en Collins Irish Tavern</h4>
                   <p>
                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                     Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
@@ -393,7 +392,7 @@
               28015 Madrid<br>
               España <br><br>
               <strong>Tel.:</strong> +34 123456789<br>
-              <strong>Email:</strong> comillas@alu.edu.com<br>
+              <strong>Email:</strong> comillas@alu.edu<br>
             </p>
           </div>
 
@@ -401,9 +400,9 @@
             <h4>Links de utilidad</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="index.html">Página principal</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="about.html">Dame un plan</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="courses.html">Cerca de mí</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="events.html">Conócenos</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="local-details.html">Dame un plan</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="map.html">Cerca de mí</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="info.html">Conócenos</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="contact.html">Hagamos Negocios</a></li>
             </ul>
           </div>
@@ -421,7 +420,7 @@
             <h4>Suscríbete a nuestro boletín</h4>
             <p>Te mantendremos informado de nuevos planes en función de tus preferencias</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email"><input type="submit" value="Suscribirse">
             </form>
           </div>
 

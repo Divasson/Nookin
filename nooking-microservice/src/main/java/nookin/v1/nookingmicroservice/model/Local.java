@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
@@ -52,6 +55,7 @@ public class Local {
 
     private Integer aforo;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "local")
     private List<Valoracion> valoraciones;
 
