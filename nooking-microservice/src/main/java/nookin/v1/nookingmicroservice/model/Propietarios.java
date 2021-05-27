@@ -31,18 +31,17 @@ public class Propietarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+    
     private String nombre;
 
-    @NotNull
+    
     @Pattern(regexp ="[\\d]{9}") //9 dígitos solo
     private String telefono;
 
-    @NotNull
-    //@Pattern(regexp ="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g") //email validation
+    
     private String email;
 
-    @Min(0)
+    
     private Integer edad;
 
     @OneToMany(mappedBy = "propietario")

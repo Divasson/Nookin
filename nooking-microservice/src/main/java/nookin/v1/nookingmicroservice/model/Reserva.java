@@ -30,22 +30,22 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    
     private LocalDate fechaReserva;
 
-    @NotNull
+    
     @ManyToMany
     @JoinTable(name = "USUARIOS_RESERVA")
     private List<Usuario> usuariosReserva;
 
-    @NotNull
+    
     @ManyToOne(cascade = CascadeType.MERGE)
     private Local localReserva;
 
-    @NotNull
+    
     private Integer numPersonasReserva;
 
-    @NotNull
+    
     @Enumerated(EnumType.STRING)
     private EstadoReserva estadoReserva;
     

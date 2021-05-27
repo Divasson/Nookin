@@ -31,10 +31,10 @@ public class Local {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    
     private String nombre;
 
-    @NotNull
+    
     @Embedded
     // @AttributeOverrides({
     // @AttributeOverride( name = "firstName", column = @Column(name =
@@ -49,7 +49,7 @@ public class Local {
 
     private String telefono;
 
-    @NotNull
+
     private Integer aforo;
 
     @OneToMany(mappedBy = "local")
@@ -64,7 +64,7 @@ public class Local {
     @ManyToOne(cascade = CascadeType.ALL)
     private Propietarios propietario;
 
-    @NotNull
+
     private String urlImagenLocal;
 
     /*

@@ -17,14 +17,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Embeddable
 public class Categoria {
-    @Min(0)
+    
     private Integer edadRecomendada;
     private Integer horaInicio;
     private Integer horaFinal; 
-    @NotNull
+    
     @Enumerated(EnumType.STRING)
     private TipoCategoriaRestaurante tipoCategoria;
-    
+
     public Categoria(@Min(0) Integer edadRecomendada, Integer horaInicio, Integer horaFinal,
             @NotNull TipoCategoriaRestaurante tipoCategoria) {
         this.edadRecomendada = edadRecomendada;

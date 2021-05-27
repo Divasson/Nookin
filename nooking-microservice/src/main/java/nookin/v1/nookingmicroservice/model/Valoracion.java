@@ -23,7 +23,7 @@ public class Valoracion {
 
     private String textoValoracion;
 
-    @NotNull
+    
     @Range(max = 5,min = 0)
     private Integer puntuacion;
 
