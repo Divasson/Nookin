@@ -2,6 +2,7 @@ package nookin.v1.nookingmicroservice.config;
 
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
@@ -71,7 +72,7 @@ public class DBConfig {
             irishRover.setValoraciones(List.of(valoracion));
             
 
-            Reserva reserva = new Reserva(LocalDate.of( 2021 , 05 , 30 ),List.of(santi,nacho,alex),irishRover,3,EstadoReserva.ACTIVA);
+            Reserva reserva = new Reserva(Date.from(LocalDate.of( 2021 , 05 , 30 ).atStartOfDay(ZoneId.systemDefault()).toInstant()),List.of(santi,nacho,alex),irishRover,3,EstadoReserva.ACTIVA);
             irishRover.setReservas(List.of(reserva));
             santi.setReservas(List.of(reserva));
             nacho.setReservas(List.of(reserva));
