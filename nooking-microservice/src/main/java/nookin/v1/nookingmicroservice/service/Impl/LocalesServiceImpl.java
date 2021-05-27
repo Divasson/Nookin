@@ -29,7 +29,7 @@ public class LocalesServiceImpl implements LocalesService{
         return null;
     }
 
-    @Override
+    /* @Override
     public List<Local> getTodosLocalesConSitio(Integer horaInicio, Integer horaFin,Date dia) {
         Iterator it =  localesRepository.findAll().iterator();
         List<Local> listaDevolver = null;
@@ -40,6 +40,6 @@ public class LocalesServiceImpl implements LocalesService{
             }
         }
         return listaDevolver;
-    }
+    } */
     
 }

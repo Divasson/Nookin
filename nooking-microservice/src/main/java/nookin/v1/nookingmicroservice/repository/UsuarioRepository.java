@@ -3,14 +3,17 @@ package nookin.v1.nookingmicroservice.repository;
 
 import nookin.v1.nookingmicroservice.model.Usuario;
 
-import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.Query;
 
 @Repository
-public interface UsuarioRepository extends CrudRepository<Usuario, Long>{
+public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
     
-    @Query("SELECT TOP 1 * FROM CLIENTES WHERE NOMBRE= :nombre")
+    @Query("SELECT TOP 1 * FROM USUARIOS WHERE nombre= :nombre")
     Usuario getUsuarioByNombre(@Param("nombre") String nombre);
+
+    
 }
