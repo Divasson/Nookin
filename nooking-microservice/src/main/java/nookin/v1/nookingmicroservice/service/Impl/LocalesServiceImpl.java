@@ -3,6 +3,7 @@ package nookin.v1.nookingmicroservice.service.Impl;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,16 @@ public class LocalesServiceImpl implements LocalesService{
     @Override
     public List<Local> getTodosLocales() {
         return localesRepository.findAll();
+    }
+
+    @Override
+    public List<String> getCategorias() {
+        return localesRepository
+            .findAll()
+            .stream()
+            .map(o->o.getCategoria().getTipoCategoria().toString())
+            .distinct()
+            .collect(Collectors.toList());
     }
 
     /* @Override

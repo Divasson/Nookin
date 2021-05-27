@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
@@ -56,6 +57,11 @@ public class LocalesController {
     @GetMapping("/locales/verLocalCategoria")
     public ResponseEntity<Local> getLocalesByCategoria(@RequestParam String id){
         return ResponseEntity.ok().body(null);
+    }
+
+    @GetMapping("/locales/getCategorias")
+    public ResponseEntity<List<String>> getCategorias(){
+        return ResponseEntity.ok().body(localesService.getCategorias());
     }
 
     @PostMapping(
