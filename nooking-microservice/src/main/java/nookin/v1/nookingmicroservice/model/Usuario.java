@@ -29,27 +29,19 @@ public class Usuario{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+
     private String nombre;
 
-    @NotNull
     private String contrasena;
 
-    @NotNull
-    @Pattern(regexp ="[\\d]{9}") //9 dígitos solo
     private String telefono;
 
-    @NotNull
-    @Pattern(regexp ="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g") //email validation
     private String email;
 
-    @Min(0)
     private Integer edad;
 
-    @Min((long) 0.0)
     private Float saldo;
-    
-    
+
     //private List<Local> localesPreferidos;
 
     @ManyToMany(mappedBy = "usuariosReserva")
