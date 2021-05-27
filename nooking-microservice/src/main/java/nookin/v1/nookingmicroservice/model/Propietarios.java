@@ -7,6 +7,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -44,6 +46,7 @@ public class Propietarios {
     
     private Integer edad;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "propietario")
     private List<Local> locales = new ArrayList<>();
 

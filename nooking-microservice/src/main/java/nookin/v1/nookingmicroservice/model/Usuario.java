@@ -6,6 +6,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -52,6 +53,7 @@ public class Usuario{
     
     //private List<Local> localesPreferidos;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "usuariosReserva")
     private List<Reserva> reservas;
 

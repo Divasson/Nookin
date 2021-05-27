@@ -1,5 +1,5 @@
 var myIcon = L.icon({
-    iconUrl: 'Images/cocktail2.png',
+    iconUrl: 'assets/Images/cocktail2.png',
     iconSize: [30, 40],
     iconAnchor: [30, 40],
     popupAnchor: [-10, -35],
@@ -12,10 +12,11 @@ var ListaLocales;
 
 var Chinchetas = [];
 
+var mymap;
 document.addEventListener("DOMContentLoaded", function (event) {
 
 
-    var mymap = L.map('mapid', {
+    mymap = L.map('mapid', {
         center: CoordenadasMad,
         zoom: 13,
         maxZoom: 20,
@@ -31,21 +32,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
         accessToken: 'pk.eyJ1IjoiZGl2YXNzb24iLCJhIjoiY2twNWNmMml3MDB6MjJucGdwN25icWJkeiJ9.KE9KANYJEpL5DnmGyM5qZQ'
     }).addTo(mymap);
 
-    var marker = L.marker(CoordenadasMad, {
+    /* var marker = L.marker(CoordenadasMad, {
         keyboard: false,
         title: "Hola",
         icon: myIcon
     }).addTo(mymap);
     marker.bindPopup('<h2><b>Bar Marcial</b></h2><img src="Images/BarCualquiera.jpg" width="200px" height="150px"><p><a href="vistaLocalConcreto.html">Buscar Reserva</a></p>', { keepInView: true });
-
+ */
     // var popup = L.popup()
     // .setLatLng([40.4530, -3.6883])
     // .setContent("I am a standalone popup.")
     // .openOn(mymap);
+    loadLocales();
 });
 
 function loadLocales() {
-    const address = '/api/locales/verTodosConSitio';
+    const address = '/api/locales/verTodos';
 
 
     var headers = {
@@ -81,13 +83,17 @@ function loadLocales() {
 function ponerChinchetas(){
     for(i=0;i<ListaLocales.length;i++){
         //Mismo tipo de chincheta para todos
-        Chinchetas[i] = L.marker(ListaLocales[i].latLon, {
+        console.log(ListaLocales[i].direccion.latitud);
+        console.log(ListaLocales[i].direccion.longitud);
+        Chinchetas[i] = L.marker([ListaLocales[i].direccion.latitud,ListaLocales[i].direccion.longitud], {
             keyboard: false,
             title: ListaLocales[i].nombre,
             icon: myIcon
         }).addTo(mymap);
-        if(ListaLocales[i].imagen = ""){
-            Chinchetas[i].bindPopup('<h2><b>'+ListaLocales[i].nombre+'</b></h2><img src="'+ListaLocales[i].imagen+'" width="200px" height="150px"><p><a href="vistaLocalConcreto.html/'+ListaLocales[i].id+'">Buscar Reserva</a></p>', { keepInView: true });
+        console.log(ListaLocales[i].urlImagenLocal);
+        if(ListaLocales[i].imagen != ""){
+            Chinchetas[i].bindPopup('<h2><b>'+ListaLocales[i].nombre+'</b></h2><p>'+ListaLocales[i].categoria.tipoCategoria+'</p><p><img src="'+ListaLocales[i].urlImagenLocal+'" width="200px" height="150px"></p><p><a href="local-details.html?localId='+ListaLocales[i].id+'">Mirar Local</a></p>', { keepInView: true });
+            console.log('<a href="local-details.html?localId='+ListaLocales[i].id+'></a>');
         }else{
             Chinchetas[i].bindPopup('<h2><b>'+ListaLocales[i].nombre+'</b></h2><img src="Images/BarCualquiera.jpg" width="200px" height="150px"><p><a href="vistaLocalConcreto.html/'+ListaLocales[i].id+'">Buscar Reserva</a></p>', { keepInView: true });
         }

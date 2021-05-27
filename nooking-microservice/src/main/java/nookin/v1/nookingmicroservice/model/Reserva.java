@@ -16,7 +16,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,15 +34,16 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    
-    private LocalDate fechaReserva;
+    //@JsonSerialize(using = LocalDateTimeSerializer.class)
+    //@JsonDeserialize(using = LocalDateTimeDeserializer.class)   
+    private Date fechaReserva;
 
     
     @ManyToMany
     @JoinTable(name = "USUARIOS_RESERVA")
     private List<Usuario> usuariosReserva;
 
-    
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.MERGE)
     private Local localReserva;
 
@@ -51,7 +56,7 @@ public class Reserva {
     
 
 
-    public Reserva(@NotNull LocalDate fechaReserva, @NotNull List<Usuario> usuariosReserva, @NotNull Local localReserva,
+    public Reserva(@NotNull Date fechaReserva, @NotNull List<Usuario> usuariosReserva, @NotNull Local localReserva,
             @NotNull Integer numPersonasReserva, @NotNull EstadoReserva estadoReserva) {
         this.fechaReserva = fechaReserva;
         this.usuariosReserva = usuariosReserva;

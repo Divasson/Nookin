@@ -162,7 +162,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .get-started-btn:hover {
-  background: #3ac162;
+  background: rgb(114, 114, 114);
   color: #fff;
 }
 
@@ -1282,16 +1282,16 @@ section {
   color: #fff;
 }
 
-.contact .php-email-form {
+.contact .login-form {
   width: 100%;
   background: #fff;
 }
 
-.contact .php-email-form .form-group {
+.contact .login-form .form-group {
   padding-bottom: 8px;
 }
 
-.contact .php-email-form .error-message {
+.contact .login-form .error-message {
   display: none;
   color: #fff;
   background: #ed3c0d;
@@ -1300,11 +1300,11 @@ section {
   font-weight: 600;
 }
 
-.contact .php-email-form .error-message br + br {
+.contact .login-form .error-message br + br {
   margin-top: 25px;
 }
 
-.contact .php-email-form .sent-message {
+.contact .login-form .sent-message {
   display: none;
   color: #fff;
   background: #18d26e;
@@ -1313,14 +1313,14 @@ section {
   font-weight: 600;
 }
 
-.contact .php-email-form .loading {
+.contact .login-form .loading {
   display: none;
   background: #fff;
   text-align: center;
   padding: 15px;
 }
 
-.contact .php-email-form .loading:before {
+.contact .login-form .loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -1333,25 +1333,25 @@ section {
   animation: animate-loading 1s linear infinite;
 }
 
-.contact .php-email-form input, .contact .php-email-form textarea {
+.contact .login-form input, .contact .login-form textarea {
   border-radius: 4px;
   box-shadow: none;
   font-size: 14px;
 }
 
-.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+.contact .login-form input:focus, .contact .login-form textarea:focus {
   border-color: #35dba0;
 }
 
-.contact .php-email-form input {
+.contact .login-form input {
   height: 44px;
 }
 
-.contact .php-email-form textarea {
+.contact .login-form textarea {
   padding: 10px 12px;
 }
 
-.contact .php-email-form button[type="submit"] {
+.login-form button[type="submit"] {
   background: #35dba0;
   border: 0;
   padding: 10px 35px;
@@ -1360,8 +1360,8 @@ section {
   border-radius: 50px;
 }
 
-.contact .php-email-form button[type="submit"]:hover {
-  background: #3ac162;
+.login-form button[type="submit"]:hover {
+  background: rgb(114, 114, 114);
 }
 
 @-webkit-keyframes animate-loading {
@@ -1508,7 +1508,7 @@ section {
 }
 
 #footer .footer-newsletter form input[type="submit"]:hover {
-  background: #3ac162;
+  background: rgb(114, 114, 114);
 }
 
 #footer .credits {
@@ -1544,4 +1544,63 @@ section {
   background: #3ac162;
   color: #fff;
   text-decoration: none;
+}
+
+
+/* Extra */
+
+.tags {
+  list-style: none;
+  margin: 0;
+  overflow: hidden; 
+  padding: 0;
+}
+
+.tags li {
+  float: left; 
+}
+
+.tag {
+  background: crimson;
+  border-radius: 3px 0 0 3px;
+  color: white;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+}
+
+.tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.tag::after {
+  background: #fff;
+  border-bottom: 13px solid transparent;
+  border-left: 10px solid crimson;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.tag:hover {
+  background-color: rgb(112, 9, 9);
+  color: white;
+}
+
+.tag:hover::after {
+   border-left-color: rgb(112, 9, 9);
 }

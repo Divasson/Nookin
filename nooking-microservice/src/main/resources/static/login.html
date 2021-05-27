@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-  <title>Contact - Nookin Bootstrap Template</title>
-  <meta content="" name="description" />
-  <meta content="" name="keywords" />
+  <title>Nookin - Login</title>
+  <meta content="Nooking nació como una idea para satisfacer las necesidades de ocio de los jóvenes en Madrid. A día de hoy el concepto que ha traído al mercado está dando la vuelta al mundo." name="description">
+  <META NAME="KEYWORDS" CONTENT="Reservas,Fiesta,Bar,Comida,Copas,Amigos,Familia,Pareja">
+  <META NAME="Resource-type" CONTENT="Document">
+  <META NAME="DateCreated" CONTENT="Thu, 27 May 2021 10:35:00 GMT+1">
+  <META NAME="Revisit-after" CONTENT="2 days">
+  <META NAME="robots" content="ALL">
+  <meta name="author" content="Ignacio Divassón, Álvaro Guerrero, Gonzalo Fuster" />
+  <meta name="copyright" content="Nooking All Rights Reserved." />
+
+  <!--Email-->
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon" />
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="assets/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="assets/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#35dba0">
 
   <!-- Google Fonts -->
   <link
@@ -48,17 +64,17 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="about.html">Dame un plan</a></li>
-          <li><a href="courses.html">Cerca de mí</a></li>
+          <li><a href="local-details.html">Dame un plan</a></li>
+          <li><a href="map.html">Cerca de mí</a></li>
           <li class="dropdown">
-            <a href="#"><span>Mejores planes</span> <i class="bi bi-chevron-down"></i></a>
+            <a href="categories.html"><span>Mejores planes</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
+              <li><a href="cat.html">Template de categoría</a></li>
               <li class="dropdown">
                 <a href="#"><span>Deep Drop Down</span>
                   <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="cat.html">Template de subcategoría</a></li>
                   <li><a href="#">Deep Drop Down 2</a></li>
                   <li><a href="#">Deep Drop Down 3</a></li>
                   <li><a href="#">Deep Drop Down 4</a></li>
@@ -70,7 +86,7 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a href="events.html">Conócenos</a></li>
+          <li><a href="info.html">Conócenos</a></li>
 
           <li><a href="contact.html">Hagamos negocios</a></li>
         </ul>
@@ -87,11 +103,12 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
-        <h2>Inicia sesión o registrate</h2>
+        <h2>Inicia sesión o regístrate</h2>
         <p>
-          Para disfrutar de todos los servicios de nuestra web y poder reserrvar los mejores planes de Madrid es
-          necesario tener un usuario registrado.
-          <br>Además, ¡es muy fácil!
+          Para disfrutar de todos los servicios de nuestra web y poder
+          reserrvar los mejores planes de Madrid es necesario tener un usuario
+          registrado.
+          <br />Además, ¡es muy fácil!
         </p>
       </div>
     </div>
@@ -105,42 +122,57 @@
             <div class="section-title">
               <p class="text-center">Regístrate</p>
             </div>
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                <div class="form-group mt-3">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
+            <form role="form" class="login-form" id="signup_form">
+              <div class="form-group mt-3">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required />
+              </div>
+              <div class="form-group mt-4">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required />
+              </div>
+              <div class="form-group mt-4">
+                <input type="text" class="form-control" name="password" id="password" placeholder="Contraseña"
+                  required />
+              </div>
+              <div class="form-group mt-4">
+                <input type="text" class="form-control" name="password2" id="password2"
+                  placeholder="Confirmar contraseña" required />
+              </div>
+              <div class="row">
+                <div class="col form-group mt-4">
+                  <input type="number" class="form-control" name="age" id="age" min="0" max="100"
+                         placeholder="Edad" required />
                 </div>
-                <div class="form-group mt-4">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                <div class="col form-group mt-4">
+                  <input type="tel" class="form-control" name="tel" id="tel"
+                         placeholder="Teléfono" required />
                 </div>
-                <div class="form-group mt-4">
-                  <input type="text" class="form-control" name="password" id="password" placeholder="Contraseña" required>
-                </div>
-                <div class="form-group mt-4">
-                  <input type="text" class="form-control" name="password2" id="password2" placeholder="Confirmar contraseña" required>
-                </div>
-                  <div class="text-center mt-5">
-                    <button type="submit" class="btn btn-outline-dark">Registrarse</button>
-                  </div>                
-              </form>
+              </div>
+              <div class="text-center mt-5">
+                <button type="submit">
+                  Registrarse
+                </button>
+              </div>
+            </form>
           </div>
           <div class="col">
             <div class="section-title">
               <p class="text-center">Inicia sesión</p>
             </div>
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                <div class="form-group mt-3">
-                  <input type="email" class="form-control" name="login_email" id="login_email" placeholder="Email" required>
-                </div>
-                <div class="form-group mt-4">
-                  <input type="text" class="form-control" name="login_password" id="login_password" placeholder="Contraseña" required>
-                </div>
-                  <div class="text-center mt-5">
-                    <button type="submit" class="btn btn-outline-dark">Iniciar sesión</button>
-                  </div>                
-              </form>
-
-            
-
+            <form role="form" class="login-form" id="login_form">
+              <div class="form-group mt-3">
+                <input type="email" class="form-control" name="login_email" id="login_email" placeholder="Email"
+                  required />
+              </div>
+              <div class="form-group mt-4">
+                <input type="text" class="form-control" name="login_password" id="login_password"
+                  placeholder="Contraseña" required />
+              </div>
+              <div class="text-center mt-5">
+                <button type="submit">
+                  Iniciar sesión
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -157,69 +189,66 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Nookin</h3>
             <p>
-              A108 Adam Street <br />
-              New York, NY 535022<br />
-              United States <br /><br />
-              <strong>Phone:</strong> +1 5589 55488 55<br />
-              <strong>Email:</strong> info@example.com<br />
+              Calle de Alberto Aguilera, 25 <br />
+              28015 Madrid <br />
+              España <br /><br />
+              <strong>Tel.:</strong> +34 123456789<br />
+              <strong>Email:</strong> comillas@alu.edu<br />
             </p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Links de utilidad</h4>
             <ul>
               <li>
-                <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
-              </li>
-              <li>
-                <i class="bx bx-chevron-right"></i> <a href="#">About us</a>
-              </li>
-              <li>
-                <i class="bx bx-chevron-right"></i> <a href="#">Services</a>
+                <i class="bx bx-chevron-right"></i>
+                <a href="index.html">Página principal</a>
               </li>
               <li>
                 <i class="bx bx-chevron-right"></i>
-                <a href="#">Terms of service</a>
+                <a href="local-details.html">Dame un plan</a>
               </li>
               <li>
                 <i class="bx bx-chevron-right"></i>
-                <a href="#">Privacy policy</a>
+                <a href="map.html">Cerca de mí</a>
+              </li>
+              <li>
+                <i class="bx bx-chevron-right"></i>
+                <a href="info.html">Conócenos</a>
+              </li>
+              <li>
+                <i class="bx bx-chevron-right"></i>
+                <a href="contact.html">Hagamos Negocios</a>
               </li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Otros links</h4>
             <ul>
               <li>
-                <i class="bx bx-chevron-right"></i> <a href="#">Web Design</a>
+                <i class="bx bx-chevron-right"></i>
+                <a href="#">Términos de servicio</a>
               </li>
               <li>
                 <i class="bx bx-chevron-right"></i>
-                <a href="#">Web Development</a>
+                <a href="#">Política de privacidad</a>
               </li>
               <li>
                 <i class="bx bx-chevron-right"></i>
-                <a href="#">Product Management</a>
-              </li>
-              <li>
-                <i class="bx bx-chevron-right"></i> <a href="#">Marketing</a>
-              </li>
-              <li>
-                <i class="bx bx-chevron-right"></i>
-                <a href="#">Graphic Design</a>
+                <a href="#">Únete a nuestro equipo</a>
               </li>
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
+            <h4>Suscríbete a nuestro boletín</h4>
             <p>
-              Tamen quem nulla quae legam multos aute sint culpa legam noster
-              magna
+              Te mantendremos informado de nuevos planes en función de tus
+              preferencias
             </p>
             <form action="" method="post">
-              <input type="email" name="email" /><input type="submit" value="Subscribe" />
+              <input type="email" name="email" /><input type="submit" value="Suscribirse" />
             </form>
           </div>
         </div>
@@ -263,6 +292,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+  <script src="assets/js/login.js"></script>
 </body>
 
 </html>

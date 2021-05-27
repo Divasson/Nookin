@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Trainers - Nookin Bootstrap Template</title>
+  <title>Courses - Nookin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="assets/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="assets/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#35dba0">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -27,6 +34,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/vistaLocalesMapa.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Nookin - v4.1.0
@@ -34,6 +42,17 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+   <!-- MAPAS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin="" />
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin="">
+  </script>
+
 </head>
 
 <body>
@@ -48,10 +67,13 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="about.html">Dame un plan</a></li>
-          <li><a href="courses.html">Cerca de mí</a></li>
-          <li><a class="active" href="trainers.html">Trainers</a></li>
-          <li><a href="events.html">Conócenos</a></li>
+          <li><a href="local-details.html">Dame un plan</a></li>
+          <li><a class="active" href="map.html">Cerca de mí</a></li>
+          <li class="dropdown"><a href="categories.html"><span>Mejores planes</span> <i class="bi bi-chevron-down"></i></a>
+            <ul id="dropdownJS">
+            </ul>
+          </li>
+          <li><a href="info.html">Conócenos</a></li>
 
           <li><a href="contact.html">Hagamos negocios</a></li>
         </ul>
@@ -68,77 +90,18 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
       <div class="container">
-        <h2>Trainers</h2>
-        <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+        <h2>Ver Locales</h2>
+        <p>Estos son todos los locales que trabajan con nosotros. </p>
+        <p><b>¡Disfruta y Reserva!</b></p>
       </div>
     </div><!-- End Breadcrumbs -->
 
-    <!-- ======= Trainers Section ======= -->
-    <section id="trainers" class="trainers">
-      <div class="container" data-aos="fade-up">
+    <!-- ======= Courses Section ======= -->
+    <section id="courses" class="courses">
+      <div id="mapid"></div>
 
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>Walter White</h4>
-                <span>Web Development</span>
-                <p>
-                  Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
-                </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>Sarah Jhinson</h4>
-                <span>Marketing</span>
-                <p>
-                  Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
-                </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>William Anderson</h4>
-                <span>Content</span>
-                <p>
-                  Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
-                </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Trainers Section -->
+    </section><!-- End Courses Section -->
 
   </main><!-- End #main -->
 
@@ -152,41 +115,39 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Nookin</h3>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              Calle de Alberto Aguilera, 25 <br>
+              28015 Madrid<br>
+              España <br><br>
+              <strong>Tel.:</strong> +34 123456789<br>
+              <strong>Email:</strong> comillas@alu.edu<br>
             </p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Links de utilidad</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Página principal</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="local-details.html">Dame un plan</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="map.html">Cerca de mí</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="info.html">Conócenos</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="contact.html">Hagamos Negocios</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Otros links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Términos de servicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Política de privacidad</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Únete a nuestro equipo</a></li>
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <h4>Suscríbete a nuestro boletín</h4>
+            <p>Te mantendremos informado de nuevos planes en función de tus preferencias</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email"><input type="submit" value="Suscribirse">
             </form>
           </div>
 
@@ -230,7 +191,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="assets/js/vistaLocalesMapa.js"></script>
+  <script src ="assets/js/categoriasParteArriba.js"></script>
 </body>
 
 </html>
