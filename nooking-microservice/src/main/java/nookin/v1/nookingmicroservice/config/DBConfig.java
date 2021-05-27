@@ -7,9 +7,11 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import lombok.val;
 import nookin.v1.nookingmicroservice.model.Categoria;
@@ -29,6 +31,10 @@ import nookin.v1.nookingmicroservice.repository.ValoracionesRepository;
 
 @Configuration
 public class DBConfig {
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Bean
     @Transactional
     CommandLineRunner commandLineRunner(LocalesRepository localesRepository,UsuarioRepository usuariosRepository,PropietariosRepository propietariosRepository,ValoracionesRepository valoracionesRepository,ReservasRepository reservasRepository){
@@ -55,7 +61,9 @@ public class DBConfig {
             Usuario santi = new Usuario("Santiago","A1b2c3d4","642578958","santi@hotmail.com",18);
             Usuario nacho=new Usuario("nachoDivasson","Divasson","639874682","nacho@divasson.com",20);
             Usuario alex=new Usuario("alejandro","Gonzzalez","630960855","alex@gmail.com",30);
-            
+            santi.setContrasena(passwordEncoder.encode(santi.getContrasena()));
+            nacho.setContrasena(passwordEncoder.encode(nacho.getContrasena()));
+            alex.setContrasena(passwordEncoder.encode(alex.getContrasena()));
 
 
             //Valoraciones
