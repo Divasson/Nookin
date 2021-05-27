@@ -71,8 +71,8 @@ function cargarLocal(){
                           <p>`+Local.categoria.horaInicio+` - `+Local.categoria.horaFinal+`</p>
                         </div>`);
             html.push(`<div class="course-info d-flex justify-content-between align-items-center">
-                          <h5>Horario</h5>
-                          <p><a href="${Local.paginaWeb}"> Web </a></p>
+                          <h5>Página Web</h5>
+                          <p><a href="${Local.paginaWeb}"> <i class="bi bi-globe2"></i> </a></p>
                         </div>`);
             html.push(`<div class="mt-5 row d-flex justify-content-between align-items-center">
                     <a href="reserva.html?id=${num}" class="get-started-btn" style="text-align:center;display:block;">Reservar</a>

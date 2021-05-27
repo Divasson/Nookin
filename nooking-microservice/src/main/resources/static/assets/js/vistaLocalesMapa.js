@@ -92,7 +92,8 @@ function ponerChinchetas(){
         }).addTo(mymap);
         console.log(ListaLocales[i].urlImagenLocal);
         if(ListaLocales[i].imagen != ""){
-            Chinchetas[i].bindPopup('<h2><b>'+ListaLocales[i].nombre+'</b></h2><p>'+ListaLocales[i].categoria.tipoCategoria+'</p><p><img src="'+ListaLocales[i].urlImagenLocal+'" width="200px" height="150px"></p><p><a href="local-details.html/'+ListaLocales[i].id+'">Mirar Local</a></p>', { keepInView: true });
+            Chinchetas[i].bindPopup('<h2><b>'+ListaLocales[i].nombre+'</b></h2><p>'+ListaLocales[i].categoria.tipoCategoria+'</p><p><img src="'+ListaLocales[i].urlImagenLocal+'" width="200px" height="150px"></p><p><a href="local-details.html?localId='+ListaLocales[i].id+'">Mirar Local</a></p>', { keepInView: true });
+            console.log('<a href="local-details.html?localId='+ListaLocales[i].id+'></a>');
         }else{
             Chinchetas[i].bindPopup('<h2><b>'+ListaLocales[i].nombre+'</b></h2><img src="Images/BarCualquiera.jpg" width="200px" height="150px"><p><a href="vistaLocalConcreto.html/'+ListaLocales[i].id+'">Buscar Reserva</a></p>', { keepInView: true });
         }
