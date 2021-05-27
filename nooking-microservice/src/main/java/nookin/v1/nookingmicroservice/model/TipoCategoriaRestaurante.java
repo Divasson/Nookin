@@ -5,5 +5,6 @@ public enum TipoCategoriaRestaurante {
     COPAS,
     PUB,
     IRLANDES,
-    RESTAURANTE
+    RESTAURANTE,
+    AZOTEA
 }

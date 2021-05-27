@@ -1,7 +1,11 @@
 package nookin.v1.nookingmicroservice.controller;
 
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -22,9 +26,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
 import nookin.v1.nookingmicroservice.model.Categoria;
+import nookin.v1.nookingmicroservice.model.EstadoReserva;
 import nookin.v1.nookingmicroservice.model.Local;
 import nookin.v1.nookingmicroservice.model.Reserva;
+import nookin.v1.nookingmicroservice.model.ReservaRequest;
+import nookin.v1.nookingmicroservice.model.Usuario;
 import nookin.v1.nookingmicroservice.service.LocalesService;
+import nookin.v1.nookingmicroservice.service.UsuariosService;
 
 import org.springframework.http.MediaType;
 
@@ -38,6 +46,12 @@ public class LocalesController {
     @Autowired
     private LocalesService localesService;
 
+    @Autowired
+    private UsuariosService usuariosService;
+
+    @Autowired
+    private UsuariosController usuariosController;
+
     @GetMapping("/locales/verTodos")
     public ResponseEntity<List<Local>> getTodosLocales(){
         return ResponseEntity.ok().body(localesService.getTodosLocales());
@@ -48,19 +62,24 @@ public class LocalesController {
         return ResponseEntity.ok().body(localesService.get3Primeros());
     }
 
-    /* @GetMapping("/locales/verTodosConSitio")
-    public ResponseEntity<List<Local>> getTodosLocalesConSitio(@Param("horaInicio")Integer horaInicio,@Param("horaFin")Integer horaFin,@Param("dia")Date dia){
-        return ResponseEntity.ok().body(localesService.getTodosLocalesConSitio(horaInicio,horaFin,dia));
-    } */
+    @PostMapping(path = "/reservas",
+        consumes = MediaType.APPLICATION_JSON_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Reserva> hacerReserva(@RequestBody ReservaRequest reservaRequest){
+        System.out.println(reservaRequest);
+        
+
+        return localesService.anadirReserva(reservaRequest);
+    }
 
     @GetMapping("/locales")
     public ResponseEntity<Local> getLocal(@RequestParam Long id){
         return localesService.getLocalId(id);
     }
 
-    @GetMapping("/locales/verLocalCategoria")
-    public ResponseEntity<Local> getLocalesByCategoria(@RequestParam String id){
-        return ResponseEntity.ok().body(null);
+    @GetMapping("/locales/byCat")
+    public ResponseEntity<List<Local>> getLocalesByCategoria(@RequestParam String cat){
+        return ResponseEntity.ok().body(localesService.getLocalesByCat(cat));
     }
 
     @GetMapping("/locales/getCategorias")
@@ -74,4 +93,5 @@ public class LocalesController {
     public ResponseEntity<String> anadirReserva(@RequestParam Long id,@Valid @RequestBody Reserva reserva){
         return null;
     }
+    
 }
