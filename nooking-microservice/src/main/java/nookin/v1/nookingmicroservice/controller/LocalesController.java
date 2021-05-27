@@ -43,10 +43,10 @@ public class LocalesController {
         return ResponseEntity.ok().body(null);
     }
 
-    @GetMapping("/locales/verTodosConSitio")
+    /* @GetMapping("/locales/verTodosConSitio")
     public ResponseEntity<List<Local>> getTodosLocalesConSitio(@Param("horaInicio")Integer horaInicio,@Param("horaFin")Integer horaFin,@Param("dia")Date dia){
         return ResponseEntity.ok().body(localesService.getTodosLocalesConSitio(horaInicio,horaFin,dia));
-    }
+    } */
 
     @GetMapping("/locales/verLocal")
     public ResponseEntity<Local> getLocal(@RequestParam Long id){
