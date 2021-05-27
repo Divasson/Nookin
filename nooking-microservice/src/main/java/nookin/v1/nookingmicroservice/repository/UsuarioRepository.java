@@ -12,8 +12,8 @@ import org.springframework.data.jpa.repository.Query;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
     
-    @Query(value = "SELECT TOP 1 * FROM USUARIOS WHERE nombre= :nombre",nativeQuery = true)
-    Usuario getUsuarioByNombre(@Param("nombre") String nombre);
+    @Query(value = "SELECT TOP 1 * FROM USUARIOS WHERE email= :email",nativeQuery = true)
+    Usuario getUsuarioByEmail(@Param("email") String email);
 
     
 }

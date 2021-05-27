@@ -22,8 +22,7 @@ public class LocalesServiceImpl implements LocalesService{
 
     @Override
     public ResponseEntity<Local> getLocalId(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+        return ResponseEntity.ok().body(localesRepository.findById(id).get());
     }
 
     @Override

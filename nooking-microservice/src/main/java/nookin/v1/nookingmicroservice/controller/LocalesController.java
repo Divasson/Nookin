@@ -57,7 +57,7 @@ public class LocalesController {
 
     @GetMapping("/locales/verLocal")
     public ResponseEntity<Local> getLocal(@RequestParam Long id){
-        return ResponseEntity.ok().body(null);
+        return localesService.getLocalId(id);
     }
 
     @GetMapping("/locales/verLocalCategoria")
