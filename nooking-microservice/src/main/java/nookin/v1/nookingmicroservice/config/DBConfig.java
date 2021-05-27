@@ -46,7 +46,7 @@ public class DBConfig {
 
             //LOCALES
             //Local1
-            Categoria categoriaIrlandes = new Categoria(20,18,24,TipoCategoriaRestaurante.IRLANDES);
+            Categoria categoriaIrlandes = new Categoria(20,18,24,TipoCategoriaRestaurante.IRLANDES,"https://www.irlanda.net/wp-content/uploads/sites/10/pub-irlanda.jpg","Un Irish pub es un local publico en el que se sirven bebidas y comidas. El uso del termino 'bar' para un local de estas caracteristicas es mas comun en Irlanda que en el Reino Unido. En 1635 habia 1180 pubs licenciados en Dublin.* A comienzos del siglo XX los pubs irlandeses eran locales de venta de alcohol.");
             Direccion dirIrishRover = new Direccion("Av. de Brasil, 7, 28020 Madrid",40.4547,-3.6940,"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12143.7124923661!2d-3.6939592!3d40.4547278!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xac5dccb9e6db0dd5!2sThe%20Irish%20Rover!5e0!3m2!1sen!2ses!4v1622121253527!5m2!1sen!2ses");
             Local irishRover = new Local("Irish Rover",dirIrishRover,"https://www.theirishrover.com/","915974811",100);
             irishRover.setCategoria(categoriaIrlandes);
@@ -67,7 +67,7 @@ public class DBConfig {
             //senorIrlandes.addLocales(coventGarden);
             
             //Local 3
-            Categoria categoriaDiscoteca = new Categoria(18,24,06,TipoCategoriaRestaurante.DISCOTECA);
+            Categoria categoriaDiscoteca = new Categoria(18,24,06,TipoCategoriaRestaurante.DISCOTECA,"https://estaticos-cdn.elperiodico.com/clip/dcfa9ecb-b429-4658-9bf2-9461443d645b_alta-libre-aspect-ratio_default_0.jpg","Una discoteca, tambien conocida en Argentina, Paraguay, Uruguay y en el sur de Bolivia como boliche, en Mexico como antro y en los Estados Unidos como diskothek, tambien conocidas en otros paises como night club (club nocturno), boite, disco, etc; son lugares por lo general de pago o con invitacion, con horario preferentemente nocturno, donde los concurrentes pueden bailar, socializar o consumir bebidas alcoholicas y, en general, tienen el entretenimiento como objetivo. ");
             Direccion dirBarcelo= new Direccion("C. de Barceló, 11, 28004 Madrid",40.4269,-3.6998,"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12148.735169352476!2d-3.699822!3d40.426929!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7a731def889d4532!2sBarcel%C3%B3%20Theatre!5e0!3m2!1sen!2ses!4v1622121552862!5m2!1sen!2ses");
             Local teatroBarcelo = new Local("Teatro Barcelo",dirBarcelo,"https://teatrobarcelo.com/en/","913450392",500);
             teatroBarcelo.setCategoria(categoriaDiscoteca);

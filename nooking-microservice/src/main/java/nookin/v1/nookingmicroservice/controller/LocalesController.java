@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import lombok.extern.slf4j.Slf4j;
+import nookin.v1.nookingmicroservice.model.Categoria;
 import nookin.v1.nookingmicroservice.model.Local;
 import nookin.v1.nookingmicroservice.model.Reserva;
 import nookin.v1.nookingmicroservice.service.LocalesService;
@@ -60,7 +61,7 @@ public class LocalesController {
     }
 
     @GetMapping("/locales/getCategorias")
-    public ResponseEntity<List<String>> getCategorias(){
+    public ResponseEntity<List<Categoria>> getCategorias(){
         return ResponseEntity.ok().body(localesService.getCategorias());
     }
 

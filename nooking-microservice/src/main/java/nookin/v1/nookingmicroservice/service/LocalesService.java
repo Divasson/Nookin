@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import nookin.v1.nookingmicroservice.model.Categoria;
 import nookin.v1.nookingmicroservice.model.Local;
 
 @Service
@@ -16,7 +17,7 @@ public interface LocalesService {
 
     public List<Local> getTodosLocales();
 
-    public List<String> getCategorias();
+    public List<Categoria> getCategorias();
 
     //public List<Local> getTodosLocalesConSitio(Integer horaInicio,Integer horaFin,Date dia);
 }

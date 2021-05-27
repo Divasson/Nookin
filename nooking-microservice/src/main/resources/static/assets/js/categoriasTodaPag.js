@@ -2,7 +2,7 @@
 var ListaCategorias;
 document.addEventListener("DOMContentLoaded", function (event) {
     loadCategorias();
-    crearDropdown();
+    //crearListadoCategorias();
 
 });
 
@@ -35,6 +35,36 @@ function loadCategorias() {
                 alert("Algo no ha ido como debería");
                 return false;
             }
+            let html = [];      // variable local donde almacenaremos las líneas html
+
+            var a = 0;
+            for (i = 0; i < ListaCategorias.length; i++) {
+
+                if (a == 0) {
+                    html.push(`<div class="row">`);
+                }
+                html.push(`<div class="col-md-6 d-flex align-items-stretch">`);
+                html.push(`<div class="card">`);
+                html.push(`<div class="card-img">`);
+                html.push(`<img src="${ListaCategorias[i].imagenCategoria}" alt="...">`);
+                html.push(`</div>`);
+                html.push(`<div class="card-body">`);
+                html.push(`<h5 class="card-title"><a href="cat.html?category=${ListaCategorias[i].tipoCategoria}">` + ListaCategorias[i].tipoCategoria + `</a></h5>`)
+                html.push(` <p class="card-text">` + ListaCategorias[i].descripcion + `</p>`);
+                html.push(`</div>`);
+                html.push(`</div>`);
+                html.push(`</div>`);
+                console.log(html);
+
+                a++;
+                if (a == 2) {
+                    html.push(`</div>`);
+                    a = 0;
+                }
+            }
+            html.push(`</div>`);
+            console.log(html);
+            document.getElementById("contenedorCategorias").innerHTML = html.join("");   // Añadimos las líneas html creadas a un div vacío de detail.html con identificador "div"
 
             return false;
         });
@@ -46,19 +76,31 @@ function crearListadoCategorias() {
     var a = 0;
     for (i = 0; i < ListaCategorias.length; i++) {
 
-        if(a==0){
+        if (a == 0) {
             html.push(`<div class="row">`);
         }
-        let path2 = ListaCategorias[i];
-        html.push(`<li><a href="cat.html?category=${path2}">` + path2 + `</a></li>`);
+        html.push(`<div class="col-md-6 d-flex align-items-stretch">`);
+        html.push(`<div class="card">`);
+        html.push(`<div class="card-img">`);
+        html.push(`<img src="${ListaCategorias[i].imagenCategoria}" alt="...">`);
+        html.push(`</div>`);
+        html.push(`<div class="card-body">`);
+        html.push(`<h5 class="card-title"><a href="cat.html?category=${ListaCategorias[i].tipoCategoria}">` + ListaCategorias[i].tipoCategoria + `</a></h5>`)
+        html.push(` <p class="card-text">` + ListaCategorias[i].descripcion + `</p>`);
+        html.push(`</div>`);
+        html.push(`</div>`);
+        html.push(`</div>`);
         console.log(html);
 
         a++;
-        if(a==2){
-            a=0;
+        if (a == 2) {
+            html.push(`</div>`);
+            a = 0;
         }
     }
-    document.getElementById("dropdownJS").innerHTML = html.join("");   // Añadimos las líneas html creadas a un div vacío de detail.html con identificador "div"
+    html.push(`</div>`);
+    console.log(html);
+    document.getElementById("contenedorCategorias").innerHTML = html.join("");   // Añadimos las líneas html creadas a un div vacío de detail.html con identificador "div"
 
 
 }

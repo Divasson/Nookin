@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import nookin.v1.nookingmicroservice.model.Categoria;
 import nookin.v1.nookingmicroservice.model.Local;
 import nookin.v1.nookingmicroservice.repository.LocalesRepository;
 import nookin.v1.nookingmicroservice.service.LocalesService;
@@ -31,11 +32,11 @@ public class LocalesServiceImpl implements LocalesService{
     }
 
     @Override
-    public List<String> getCategorias() {
+    public List<Categoria> getCategorias() {
         return localesRepository
             .findAll()
             .stream()
-            .map(o->o.getCategoria().getTipoCategoria().toString())
+            .map(o->o.getCategoria())
             .distinct()
             .collect(Collectors.toList());
     }
