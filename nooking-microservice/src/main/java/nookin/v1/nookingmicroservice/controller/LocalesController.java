@@ -53,6 +53,11 @@ public class LocalesController {
         return ResponseEntity.ok().body(null);
     }
 
+    @GetMapping("/locales/verLocalCategoria")
+    public ResponseEntity<Local> getLocalesByCategoria(@RequestParam String id){
+        return ResponseEntity.ok().body(null);
+    }
+
     @PostMapping(
         path = "/locales/anadirReserva",
         consumes = MediaType.APPLICATION_JSON_VALUE)

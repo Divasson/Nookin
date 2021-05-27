@@ -11,8 +11,10 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Embeddable
 public class Categoria {
     @Min(0)
@@ -22,4 +24,14 @@ public class Categoria {
     @NotNull
     @Enumerated(EnumType.STRING)
     private TipoCategoriaRestaurante tipoCategoria;
+    
+    public Categoria(@Min(0) Integer edadRecomendada, Integer horaInicio, Integer horaFinal,
+            @NotNull TipoCategoriaRestaurante tipoCategoria) {
+        this.edadRecomendada = edadRecomendada;
+        this.horaInicio = horaInicio;
+        this.horaFinal = horaFinal;
+        this.tipoCategoria = tipoCategoria;
+    }
+
+    
 }

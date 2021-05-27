@@ -21,7 +21,9 @@ import javax.validation.constraints.NotNull;
 
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @Data
 @Entity(name = "USUARIOS")
 public class Usuario{
@@ -40,7 +42,8 @@ public class Usuario{
     private String telefono;
 
     @NotNull
-    @Pattern(regexp ="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g") //email validation
+    //@Pattern(regexp ="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g",message = "El email no es valido") //email validation
+    //@Pattern(regexp = "^\\S+@\\S+\\.\\S$",message = "El email no es valido")
     private String email;
 
     @Min(0)
@@ -55,5 +58,18 @@ public class Usuario{
     @ManyToMany(mappedBy = "usuariosReserva")
     private List<Reserva> reservas;
 
+
+    public Usuario(@NotNull String nombre, @NotNull String contrasena,
+            @NotNull @Pattern(regexp = "[\\d]{9}") String telefono,
+            @NotNull @Pattern(regexp = "/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g") String email,
+            @Min(0) Integer edad) {
+        this.nombre = nombre;
+        this.contrasena = contrasena;
+        this.telefono = telefono;
+        this.email = email;
+        this.edad = edad;
+    }
+
+    
     
 }

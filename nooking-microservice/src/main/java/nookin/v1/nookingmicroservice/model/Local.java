@@ -19,8 +19,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -28,7 +26,7 @@ import lombok.Data;
 @Entity(name = "LOCALES")
 public class Local {
 
-    //Atributos
+    // Atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,20 +36,22 @@ public class Local {
 
     @NotNull
     @Embedded
-    //@AttributeOverrides({
-    //    @AttributeOverride( name = "firstName", column = @Column(name = "contact_first_name")),
-    //    @AttributeOverride( name = "lastName", column = @Column(name = "contact_last_name")),
-    //    @AttributeOverride( name = "phone", column = @Column(name = "contact_phone"))
-    //})
+    // @AttributeOverrides({
+    // @AttributeOverride( name = "firstName", column = @Column(name =
+    // "contact_first_name")),
+    // @AttributeOverride( name = "lastName", column = @Column(name =
+    // "contact_last_name")),
+    // @AttributeOverride( name = "phone", column = @Column(name = "contact_phone"))
+    // })
     private Direccion direccion;
 
     private String paginaWeb;
 
     private String telefono;
-    
+
     @NotNull
     private Integer aforo;
-    
+
     @OneToMany(mappedBy = "local")
     private List<Valoracion> valoraciones;
 
@@ -64,12 +64,31 @@ public class Local {
     @ManyToOne(cascade = CascadeType.ALL)
     private Propietarios propietario;
 
-    /* public boolean isFull(Integer horaInicio, Integer horaFin,Date diaDate){
-        Integer suma = reservas.stream().filter(o -> o.getFechaReserva().compareTo(diaDate)==0).filter(o -> o.getEstadoReserva().equals(EstadoReserva.ACTIVA)).mapToInt(o -> o.getNumPersonasReserva()).sum();
-        if(suma<aforo){
-            return false;
-        }
-        return true;
-        
-    } */
+    @NotNull
+    private String urlImagenLocal;
+
+    /*
+     * public boolean isFull(Integer horaInicio, Integer horaFin,Date diaDate){
+     * Integer suma = reservas.stream().filter(o ->
+     * o.getFechaReserva().compareTo(diaDate)==0).filter(o ->
+     * o.getEstadoReserva().equals(EstadoReserva.ACTIVA)).mapToInt(o ->
+     * o.getNumPersonasReserva()).sum(); if(suma<aforo){ return false; } return
+     * true;
+     * 
+     * }
+     */
+
+    
+
+    public Local(@NotNull String nombre, @NotNull Direccion direccion, String paginaWeb, String telefono,
+            @NotNull Integer aforo) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.paginaWeb = paginaWeb;
+        this.telefono = telefono;
+        this.aforo = aforo;
+    }
+
+    public Local() {
+    }
 }

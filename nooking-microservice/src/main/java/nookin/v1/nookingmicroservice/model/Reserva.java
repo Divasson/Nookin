@@ -1,5 +1,6 @@
 package nookin.v1.nookingmicroservice.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -18,8 +19,10 @@ import javax.validation.constraints.NotNull;
 
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity(name = "RESERVAS")
 public class Reserva {
     //Atributos
@@ -28,7 +31,7 @@ public class Reserva {
     private Long id;
 
     @NotNull
-    private Date fechaReserva;
+    private LocalDate fechaReserva;
 
     @NotNull
     @ManyToMany
@@ -36,7 +39,7 @@ public class Reserva {
     private List<Usuario> usuariosReserva;
 
     @NotNull
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Local localReserva;
 
     @NotNull
@@ -46,6 +49,17 @@ public class Reserva {
     @Enumerated(EnumType.STRING)
     private EstadoReserva estadoReserva;
     
-    @NotNull
-    private String urlImagenLocal;
+
+
+    public Reserva(@NotNull LocalDate fechaReserva, @NotNull List<Usuario> usuariosReserva, @NotNull Local localReserva,
+            @NotNull Integer numPersonasReserva, @NotNull EstadoReserva estadoReserva) {
+        this.fechaReserva = fechaReserva;
+        this.usuariosReserva = usuariosReserva;
+        this.localReserva = localReserva;
+        this.numPersonasReserva = numPersonasReserva;
+        this.estadoReserva = estadoReserva;
+
+    }
+
+    
 }
