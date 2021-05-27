@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Nookin - Categories</title>
+  <title>Nookin - Map</title>
   <meta content="Nooking nació como una idea para satisfacer las necesidades de ocio de los jóvenes en Madrid. A día de hoy el concepto que ha traído al mercado está dando la vuelta al mundo." name="description">
   <META NAME="KEYWORDS" CONTENT="Reservas,Fiesta,Bar,Comida,Copas,Amigos,Familia,Pareja">
   <META NAME="Resource-type" CONTENT="Document">
@@ -40,6 +40,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/vistaLocalesMapa.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Nookin - v4.1.0
@@ -47,6 +48,17 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+   <!-- MAPAS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin="" />
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin="">
+  </script>
+
 </head>
 
 <body>
@@ -62,8 +74,8 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a href="local-details.html">Dame un plan</a></li>
-          <li><a href="map.html">Cerca de mí</a></li>
-          <li class="dropdown"><a class="active" href="categories.html"><span>Mejores planes</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="active" href="map.html">Cerca de mí</a></li>
+          <li class="dropdown"><a href="categories.html"><span>Mejores planes</span> <i class="bi bi-chevron-down"></i></a>
             <ul id="dropdownJS">
             </ul>
           </li>
@@ -84,19 +96,18 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
       <div class="container">
-        <h2>Todas las Categorias</h2>
-        <p>Estas son las diferentes categorías en las que se dividen todas las opciones que te ofrecemos. </p>
+        <h2>Ver Locales</h2>
+        <p>Estos son todos los locales que trabajan con nosotros. </p>
+        <p><b>¡Disfruta y Reserva!</b></p>
       </div>
     </div><!-- End Breadcrumbs -->
 
-    <!-- ======= Events Section ======= -->
-    <section id="events" class="events">
-      <div class="container" data-aos="fade-up" id = "contenedorCategorias">
+    <!-- ======= Courses Section ======= -->
+    <section id="courses" class="courses">
+      <div id="mapid"></div>
 
 
-
-      </div>
-    </section><!-- End Events Section -->
+    </section><!-- End Courses Section -->
 
   </main><!-- End #main -->
 
@@ -186,8 +197,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/vistaLocalesMapa.js"></script>
   <script src ="assets/js/categoriasParteArriba.js"></script>
-  <script src = "assets/js/categoriasTodaPag.js"></script>
 </body>
 
 </html>
