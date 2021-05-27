@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.Optional;
 
+import nookin.v1.nookingmicroservice.model.JwtSignupRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -34,15 +35,9 @@ public class UsuariosServiceImpl implements UsuariosService{
     }
 
     @Override
-    public ResponseEntity<Usuario> anadirUsuario(Usuario user) {
+    public void anadirUsuario(JwtSignupRequest user) {
         // TODO Auto-generated method stub
-        if(Objects.nonNull(usuarioRepository.getUsuarioByEmail(user.getNombre()))){
-            return ResponseEntity.badRequest().body(null);
-        }
-        user.setContrasena(passwordEncoder.encode(user.getContrasena()));
-        usuarioRepository.save(user);
-        return ResponseEntity.ok().body(user);
-
+        usuarioRepository.addUsuario(user.getName(), user.getPassword(), user.getTelephone(), user.getEmail(), user.getAge());
     }
 
     @Override
