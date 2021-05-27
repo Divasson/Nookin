@@ -8,8 +8,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import lombok.extern.slf4j.Slf4j;
+import nookin.v1.nookingmicroservice.model.JwtRequest;
 import nookin.v1.nookingmicroservice.model.JwtSignupRequest;
 import nookin.v1.nookingmicroservice.model.Local;
 import nookin.v1.nookingmicroservice.model.Reserva;
@@ -64,5 +63,18 @@ public class UsuariosController {
             return ResponseEntity.badRequest().body(null);
         } */
         return usuariosService.anadirUsuario(user);
+    }
+
+    @PostMapping(
+        path = "comprobarUsuarios",
+        consumes = MediaType.APPLICATION_JSON_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Usuario> anadirUsuario(@Valid @RequestBody JwtRequest user,BindingResult bindingResult){
+        System.out.println(user);
+/*         if(bindingResult.hasErrors()){
+            System.out.println("Algo ha ido mal");
+            return ResponseEntity.badRequest().body(null);
+        } */
+        return usuariosService.isUsuario(user);
     }
 }

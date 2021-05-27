@@ -103,32 +103,22 @@ function loadReservasPopulares(){
             let html = [];      // variable local donde almacenaremos las líneas html
 
 
-            for (i = 0; (i < ListaLocales.length) ; i++) {
-
-
-                html.push(`<div class="col-lg-4 col-md-6 d-flex align-items-stretch " right-margin:500px>`);
-                html.push(`<div class="course-item" min-width: 100%;>`);
-                html.push(`<div class="card-img" min-width: 100%;>`);
+            for (i = 0; (i < 3) ; i++) {
+                html.push(`<div class="col-lg-4 col-md-6 d-flex align-items-stretch ">`);
+                html.push(`<div class="course-item">`);
                 html.push(` <img src="${ListaLocales[i].urlImagenLocal}" class="img-fluid" alt="...">`);
                 html.push(`<div class="course-content">`);
                 html.push(`<div class="d-flex justify-content-between align-items-center mb-3">`);
                 html.push(`<h4>`+ListaLocales[i].categoria.tipoCategoria+`</h4>`);
                 html.push(`</div>`);
-                html.push(`<h3><a href="local-details?localId=${ListaLocales[i].id}.html">`+ListaLocales[i].nombre+`</a></h3>`);
+                html.push(`<h3><a href="local-details.html?localId=${ListaLocales[i].id}">`+ListaLocales[i].nombre+`</a></h3>`);
                 html.push(`<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type </p>`);
                 html.push(`<div class="trainer d-flex justify-content-between align-items-center">`);
                 html.push(`<div class="trainer-rank d-flex align-items-center">`);
-                html.push(`<i class="bx bx-user"></i>&nbsp;50
-                &nbsp;&nbsp;
-                <i class="bx bx-heart"></i>&nbsp;65
-                </div>`);
+                html.push(`<i class="bx bx-user"></i>&nbsp;50 &nbsp;&nbsp; <i class="bx bx-heart"></i>&nbsp;65 </div>`);
                 html.push(`<div class="mt-2 d-flex align-items-center">`);
                 html.push(`<a class="tag">-20% en carta</a>`);
-                html.push(`</div>
-                        </div>
-                    </div>
-                    </div>
-                </div> `);
+                html.push(`</div></div></div></div></div>`);
 
             }
             

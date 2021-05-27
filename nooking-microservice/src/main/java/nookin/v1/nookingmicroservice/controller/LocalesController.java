@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,7 +53,7 @@ public class LocalesController {
         return ResponseEntity.ok().body(localesService.getTodosLocalesConSitio(horaInicio,horaFin,dia));
     } */
 
-    @GetMapping("/locales/verLocal")
+    @GetMapping("/locales")
     public ResponseEntity<Local> getLocal(@RequestParam Long id){
         return localesService.getLocalId(id);
     }
