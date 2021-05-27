@@ -90,8 +90,15 @@ public class DBConfig {
             //irishRover.setPropietario(senorIrlandes);
             laFelicidad.setUrlImagenLocal("https://www.larazon.es/resizer/Vi_r8Y9ZyXUG2FOGdNqvbAWBocs=/840x0/smart/filters:format(jpg)/cloudfront-eu-central-1.images.arcpublishing.com/larazon/YPGY537HQVC4ND34POESKRC2S4.jpg");
 
+            //Local 6
+            Direccion dirChapandaz = new Direccion("C. de Fernando el Católico, 77, 28015 Madrid",40.43464540950222, -3.7175756,"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12147.423873667354!2d-3.7175756!3d40.4341881!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x115da710986cacd1!2sEl%20Chapandaz!5e0!3m2!1ses!2ses!4v1622150350064!5m2!1ses!2ses");
+            Local elChapandaz = new Local("El Chapandaz",dirChapandaz,"https://elchapandaz.com/","+915 49 29 68",107);
+            elChapandaz.setCategoria(categoriaCopas);
+            //irishRover.setPropietario(senorIrlandes);
+            elChapandaz.setUrlImagenLocal("https://unbuendiaenmadrid.com/wp-content/uploads/2012/12/IMG_0118.jpg");
+
             //senorIrlandes.addLocales(teatroBarcelo);
-            localesRepository.saveAll(List.of(teatroBarcelo,coventGarden,CirculoBellasArtes, laFelicidad));
+            localesRepository.saveAll(List.of(teatroBarcelo,coventGarden,CirculoBellasArtes, laFelicidad, elChapandaz));
 
             //USUARIOS
             Usuario santi = new Usuario("Santiago","A1b2c3d4","642578958","santi@hotmail.com",18);
