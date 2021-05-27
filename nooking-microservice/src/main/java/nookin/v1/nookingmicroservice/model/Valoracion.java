@@ -9,6 +9,11 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import org.hibernate.validator.constraints.Range;
+
 import lombok.Data;
 
 @Data
@@ -21,10 +26,23 @@ public class Valoracion {
 
     private String textoValoracion;
 
-    @NotNull
-    @Size(max = 5,min = 0)
+    
+    @Range(max = 5,min = 0)
     private Integer puntuacion;
 
+
+    //@JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @ManyToOne(cascade = CascadeType.ALL)
     private Local local;
+
+    public Valoracion() {
+    }
+
+    public Valoracion(String textoValoracion, @NotNull @Size(max = 5, min = 0) Integer puntuacion, Local local) {
+        this.textoValoracion = textoValoracion;
+        this.puntuacion = puntuacion;
+        this.local = local;
+    }
+
+    
 }

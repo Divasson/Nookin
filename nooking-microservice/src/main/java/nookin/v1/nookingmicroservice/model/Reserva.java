@@ -1,5 +1,6 @@
 package nookin.v1.nookingmicroservice.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -15,11 +16,17 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity(name = "RESERVAS")
 public class Reserva {
     //Atributos
@@ -27,25 +34,37 @@ public class Reserva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    //@JsonSerialize(using = LocalDateTimeSerializer.class)
+    //@JsonDeserialize(using = LocalDateTimeDeserializer.class)   
     private Date fechaReserva;
 
-    @NotNull
+    
     @ManyToMany
     @JoinTable(name = "USUARIOS_RESERVA")
     private List<Usuario> usuariosReserva;
 
-    @NotNull
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Local localReserva;
 
-    @NotNull
+    
     private Integer numPersonasReserva;
 
-    @NotNull
+    
     @Enumerated(EnumType.STRING)
     private EstadoReserva estadoReserva;
     
-    @NotNull
-    private String urlImagenLocal;
+
+
+    public Reserva(@NotNull Date fechaReserva, @NotNull List<Usuario> usuariosReserva, @NotNull Local localReserva,
+            @NotNull Integer numPersonasReserva, @NotNull EstadoReserva estadoReserva) {
+        this.fechaReserva = fechaReserva;
+        this.usuariosReserva = usuariosReserva;
+        this.localReserva = localReserva;
+        this.numPersonasReserva = numPersonasReserva;
+        this.estadoReserva = estadoReserva;
+
+    }
+
+    
 }

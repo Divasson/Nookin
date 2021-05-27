@@ -15,11 +15,9 @@ import javax.validation.constraints.Pattern;
 public class JwtRequest {
 
 	@NonNull
-	@NotEmpty
 	private String username;
 
 	@NotNull
-	@NotEmpty
-	@Pattern(message="max 10 words please" , regexp="^[a-zA-Z-.0-9]{1,15}$")
+	//@Pattern(message="max 10 words please" , regexp="^[a-zA-Z-.0-9]{1,15}$")
 	private String password;
 }
